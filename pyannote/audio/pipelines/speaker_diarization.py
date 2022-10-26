@@ -169,7 +169,10 @@ class SpeakerDiarization(SpeakerDiarizationMixin, Pipeline):
                 num_speakers=len(model.specifications.classes),
             )
 
-            self.segmentation.threshold = 0.5
+            self.segmentation = {
+                "threshold": 0.5,
+                "min_duration_off": 0.0
+            }
 
         else:
             self.segmentation = ParamDict(
